@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{SHOW_TITLE}}</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0d0d0d;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #222;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 20px;
+    }
+    .title {
+      font-size: 32px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .episode-list {
+      margin-top: 30px;
+    }
+    .episode {
+      background: #1a1a1a;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .episode:hover {
+      background: #282828;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Title -->
+    <div class="title">{{SHOW_TITLE}}</div>
+
+    <!-- Video placeholder -->
+    <div class="video-frame">{{EPISODE_NAME}} goes here</div>
+
+    <!-- Episode list -->
+    <div class="episode-list">
+      <h2>Episodes</h2>
+      <!-- Duplicate and edit these blocks for more episodes -->
+      <div class="episode" onclick="loadEpisode('Episode 1', 'episode1.mp4')">Episode 1 — {{EP1_TITLE}}</div>
+      <div class="episode" onclick="loadEpisode('Episode 2', 'episode2.mp4')">Episode 2 — {{EP2_TITLE}}</div>
+      <div class="episode" onclick="loadEpisode('Episode 3', 'episode3.mp4')">Episode 3 — {{EP3_TITLE}}</div>
+    </div>
+
+  </div>
+
+  <script>
+    function loadEpisode(name, src) {
+      const frame = document.querySelector('.video-frame');
+      frame.innerHTML = `<video src="${src}" controls autoplay style="width:100%; height:100%; border-radius:12px;"></video>`;
+    }
+  </script>
+</body>
+</html>
